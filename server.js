@@ -21,5 +21,5 @@ app.listen((process.env.PORT || 8080), function(){
         console.log('running on heroku')
         fs.openSync('/tmp/app-initialized','w')
     }
-    console.log('node app is runnning on port:');
+    console.log('node app is runnning on port: can we get the port');
 });
