@@ -6,6 +6,13 @@ const fs = require('fs')
 const app = express()
 
 //serve only the static files from the dist directory
+app.use(function forceLiveDomain(req, res, next) {
+    var host = req.get('Host')
+    if(host === 'http://beta.heroanguapp.tk/hjsfk') {
+        return res.redirect(301, 'https://google.com')
+    }
+    return next();
+});
 
 app.use(express.static(__dirname + '/dist/angular-heroku-app'))
 
