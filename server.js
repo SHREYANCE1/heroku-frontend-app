@@ -8,7 +8,7 @@ const app = express()
 //serve only the static files from the dist directory
 app.use(function forceLiveDomain(req, res, next) {
     var host = req.header.host;
-    if(host === 'http://beta.heroanguapp.tk/hjsfk') {
+    if(host === 'some.beta.heroanguapp.tk/') {
         return res.redirect(301, 'https://google.com')
     }
     return next();
