@@ -8,6 +8,7 @@ const app = express()
 //serve only the static files from the dist directory
 app.use(function forceLiveDomain(req, res, next) {
     var host = req.get('Host')
+    alert(host);
     if(host === 'http://beta.heroanguapp.tk/hjsfk') {
         return res.redirect(301, 'https://google.com')
     }
@@ -16,11 +17,11 @@ app.use(function forceLiveDomain(req, res, next) {
 
 app.use(express.static(__dirname + '/dist/angular-heroku-app'))
 
-app.get('/*', function(req,res) {
+// app.get('/*', function(req,res) {
 
-    res.sendFile(path.join(__dirname+'/landingPage/index.html'))
+//     res.sendFile(path.join(__dirname+'/landingPage/index.html'))
 
-})
+// })
 
 //start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
